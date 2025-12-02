@@ -2,6 +2,7 @@
 """Advent of Code 2025 Day 2 - O(n * poly(d)) solution"""
 
 import sys
+import time
 from math import gcd
 
 
@@ -116,5 +117,10 @@ if __name__ == "__main__":
         print("Usage: python solution_optimized.py <input_file>")
         sys.exit(1)
 
+    start = time.perf_counter()
     with open(sys.argv[1]) as f:
-        print(solve(f.read()))
+        result = solve(f.read())
+    elapsed = (time.perf_counter() - start) * 1000
+
+    print(result)
+    print(f"{elapsed:.3f} ms", file=sys.stderr)
