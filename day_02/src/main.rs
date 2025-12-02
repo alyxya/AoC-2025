@@ -63,11 +63,6 @@ fn sum_invalid_ids(sub_start: u64, sub_end: u64, digits: usize, prefix_len: usiz
     let mut total: u64 = 0;
 
     for p in prefix_start..=prefix_end {
-        // Skip prefixes with leading zeros (would result in fewer digits)
-        if p < 10_u64.pow((prefix_len - 1) as u32) {
-            continue;
-        }
-
         let invalid_id = p * repeat_multiplier;
 
         if invalid_id >= sub_start && invalid_id <= sub_end {
@@ -93,11 +88,6 @@ fn collect_invalid_ids(sub_start: u64, sub_end: u64, digits: usize, prefix_len: 
     let prefix_end = sub_end / multiplier.pow((repetitions - 1) as u32);
 
     for p in prefix_start..=prefix_end {
-        // Skip prefixes with leading zeros (would result in fewer digits)
-        if p < 10_u64.pow((prefix_len - 1) as u32) {
-            continue;
-        }
-
         let invalid_id = p * repeat_multiplier;
 
         if invalid_id >= sub_start && invalid_id <= sub_end {
