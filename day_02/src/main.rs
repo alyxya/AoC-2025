@@ -50,7 +50,7 @@ fn sum_invalid_ids(sub_start: u64, sub_end: u64, digits: usize, prefix_len: usiz
     let repetitions = digits / prefix_len;
     let multiplier = 10_u64.pow(prefix_len as u32);
 
-    // Build the multiplier for repeating: e.g., for 3 reps of 2 digits: 10001
+    // Build the multiplier for repeating: e.g., for 3 reps of 2 digits: 10101
     let mut repeat_multiplier: u64 = 0;
     for i in 0..repetitions {
         repeat_multiplier += multiplier.pow(i as u32);
