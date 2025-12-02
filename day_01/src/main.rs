@@ -1,5 +1,9 @@
+use std::env;
+
 fn main() {
-    let input = std::fs::read_to_string("input.txt").expect("Failed to read input.txt");
+    let args: Vec<String> = env::args().collect();
+    let filename = args.get(1).expect("Usage: day_01 <input_file>");
+    let input = std::fs::read_to_string(filename).expect("Failed to read input file");
 
     let mut position: i32 = 50;
     let mut part1: i32 = 0;
