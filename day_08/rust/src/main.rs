@@ -1,11 +1,11 @@
-fn dsu_root(dsu_parent: &mut Vec<usize>, idx: usize) -> usize {
+fn dsu_root(dsu_parent: &mut [usize], idx: usize) -> usize {
     if dsu_parent[idx] != dsu_parent[dsu_parent[idx]] {
         dsu_parent[idx] = dsu_root(dsu_parent, dsu_parent[idx]);
     }
     return dsu_parent[idx];
 }
 
-fn dsu_merge(dsu_parent: &mut Vec<usize>, dsu_size: &mut Vec<i64>, a: usize, b: usize) {
+fn dsu_merge(dsu_parent: &mut [usize], dsu_size: &mut [i64], a: usize, b: usize) {
     let a_root: usize = dsu_root(dsu_parent, a);
     let b_root: usize = dsu_root(dsu_parent, b);
     if a_root == b_root {
